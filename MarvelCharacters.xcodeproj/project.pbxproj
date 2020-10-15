@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C90B5E72538F5FC00BB87A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C90B5E62538F5FC00BB87A3 /* AppDelegate.swift */; };
-		3C90B5E92538F5FC00BB87A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C90B5E82538F5FC00BB87A3 /* SceneDelegate.swift */; };
 		3C90B5EB2538F5FC00BB87A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C90B5EA2538F5FC00BB87A3 /* ViewController.swift */; };
-		3C90B5EE2538F5FC00BB87A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C90B5EC2538F5FC00BB87A3 /* Main.storyboard */; };
 		3C90B5F02538F5FE00BB87A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C90B5EF2538F5FE00BB87A3 /* Assets.xcassets */; };
 		3C90B5F32538F5FE00BB87A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C90B5F12538F5FE00BB87A3 /* LaunchScreen.storyboard */; };
 		3C90B5FE2538F5FE00BB87A3 /* MarvelCharactersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C90B5FD2538F5FE00BB87A3 /* MarvelCharactersTests.swift */; };
@@ -37,9 +35,7 @@
 /* Begin PBXFileReference section */
 		3C90B5E32538F5FC00BB87A3 /* MarvelCharacters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelCharacters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C90B5E62538F5FC00BB87A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3C90B5E82538F5FC00BB87A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3C90B5EA2538F5FC00BB87A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3C90B5ED2538F5FC00BB87A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3C90B5EF2538F5FE00BB87A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3C90B5F22538F5FE00BB87A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3C90B5F42538F5FE00BB87A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,12 +96,9 @@
 			isa = PBXGroup;
 			children = (
 				3C90B5E62538F5FC00BB87A3 /* AppDelegate.swift */,
-				3C90B5E82538F5FC00BB87A3 /* SceneDelegate.swift */,
-				3C90B5EA2538F5FC00BB87A3 /* ViewController.swift */,
-				3C90B5EC2538F5FC00BB87A3 /* Main.storyboard */,
-				3C90B5EF2538F5FE00BB87A3 /* Assets.xcassets */,
 				3C90B5F12538F5FE00BB87A3 /* LaunchScreen.storyboard */,
-				3C90B5F42538F5FE00BB87A3 /* Info.plist */,
+				3C90B6322538F87D00BB87A3 /* Resources */,
+				3C90B5EA2538F5FC00BB87A3 /* ViewController.swift */,
 			);
 			path = MarvelCharacters;
 			sourceTree = "<group>";
@@ -126,6 +119,15 @@
 				3C90B60A2538F5FE00BB87A3 /* Info.plist */,
 			);
 			path = MarvelCharactersUITests;
+			sourceTree = "<group>";
+		};
+		3C90B6322538F87D00BB87A3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3C90B5EF2538F5FE00BB87A3 /* Assets.xcassets */,
+				3C90B5F42538F5FE00BB87A3 /* Info.plist */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +235,6 @@
 			files = (
 				3C90B5F32538F5FE00BB87A3 /* LaunchScreen.storyboard in Resources */,
 				3C90B5F02538F5FE00BB87A3 /* Assets.xcassets in Resources */,
-				3C90B5EE2538F5FC00BB87A3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,7 +261,6 @@
 			files = (
 				3C90B5EB2538F5FC00BB87A3 /* ViewController.swift in Sources */,
 				3C90B5E72538F5FC00BB87A3 /* AppDelegate.swift in Sources */,
-				3C90B5E92538F5FC00BB87A3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +296,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3C90B5EC2538F5FC00BB87A3 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3C90B5ED2538F5FC00BB87A3 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3C90B5F12538F5FE00BB87A3 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -438,7 +430,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6H6ZL3JRAS;
-				INFOPLIST_FILE = MarvelCharacters/Info.plist;
+				INFOPLIST_FILE = MarvelCharacters/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -457,7 +450,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6H6ZL3JRAS;
-				INFOPLIST_FILE = MarvelCharacters/Info.plist;
+				INFOPLIST_FILE = MarvelCharacters/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
