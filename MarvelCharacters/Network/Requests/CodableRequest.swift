@@ -16,11 +16,14 @@ protocol Model: Codable {
 enum CodableRequest<T: Model>: CodableRequestProtocol {
     
     typealias WorkingType = T
+    
     case get(T.Type, URLParameters)
+    case fetch([T].Type, URLParameters)
     
     var baseUrl: URL {
         switch self {
-        case .get(_, let parameters):
+        case .get(_, let parameters),
+             .fetch(_, let parameters):
             let url = urlAdding(parameters: parameters)
             return URL(string: url) ?? URL(fileURLWithPath: "")
         }

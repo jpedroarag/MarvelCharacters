@@ -12,7 +12,7 @@ struct URLParameters {
     let apiKey: String
     let hash: String
     let timeStamp: Int
-    let offset: Int
+    var offset: Int
     
 }
 

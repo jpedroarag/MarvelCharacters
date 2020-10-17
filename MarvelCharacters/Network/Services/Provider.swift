@@ -37,7 +37,7 @@ class DataProvider: SessionProvider {
 protocol CodableProvider: DataProvider {
     
     func perform<T>(_ request: T,
-                    handledResult: @escaping (Result<T.WorkingType, Error>) -> Void) where T: CodableRequestProtocol
+                    handledResult: @escaping (Result<Response<T.WorkingType>, Error>) -> Void) where T: CodableRequestProtocol
     
 }
 

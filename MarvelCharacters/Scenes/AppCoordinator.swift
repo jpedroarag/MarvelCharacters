@@ -10,21 +10,19 @@ import UIKit
 class AppCoordinator: Coordinator {
     
     let window: UIWindow?
+    let rootNavigationController: UINavigationController
     
-    lazy var rootViewController: UINavigationController = {
-        let viewController = CharacterListViewController()
-        return UINavigationController(rootViewController: viewController)
-    }()
-    
-    init(window: UIWindow?) {
+    init(window: UIWindow?,
+         rootNavigationController: UINavigationController = .init()) {
         self.window = window
+        self.rootNavigationController = rootNavigationController
     }
 
     override func start() {
         guard let window = window else {
             return
         }
-        window.rootViewController = rootViewController
+        window.rootViewController = rootNavigationController
         window.makeKeyAndVisible()
     }
     

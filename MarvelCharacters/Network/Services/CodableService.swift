@@ -10,15 +10,16 @@ import Foundation
 class CodableService: DataProvider, CodableProvider {
 
     func perform<T>(_ request: T,
-                    handledResult: @escaping (Result<T.WorkingType, Error>) -> Void) where T: CodableRequestProtocol {
-        session.dataTask(with: request.urlRequest) { data, response, error in
+                    handledResult: @escaping (Result<Response<T.WorkingType>, Error>) -> Void) where T: CodableRequestProtocol {
+        session.dataTask(with: request.urlRequest) { [weak self] data, response, error in
+            guard let self = self else { return }
             self.handleResult(result: (data, response, error),
                               completion: handledResult)
         }.resume()
     }
     
     private func handleResult<D: Decodable>(result: (data: Data?, response: URLResponse?, error: Error?),
-                                            completion: (Result<D, Error>) -> Void) {
+                                            completion: (Result<Response<D>, Error>) -> Void) {
         guard let response = result.response else {
             return completion(.failure(NetworkError.noJSONData))
         }
@@ -43,18 +44,18 @@ class CodableService: DataProvider, CodableProvider {
         
     }
     
-    private func succededResquest<D: Decodable>(data: Data, completion: (Result<D, Error>) -> Void) {
+    private func succededResquest<D: Decodable>(data: Data, completion: (Result<Response<D>, Error>) -> Void) {
         let decoder = JSONDecoder()
         let formatter = DateFormatter()
         formatter.calendar = .init(identifier: .iso8601)
         formatter.dateFormat = "MM-dd-yy"
         decoder.dateDecodingStrategy = .formatted(formatter)
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
 
         do {
-            let model = try decoder.decode(D.self, from: data)
+            let model = try decoder.decode(Response<D>.self, from: data)
             completion(.success(model))
         } catch {
+            print(error)
             completion(.failure(NetworkError.decodeError(error.localizedDescription)))
         }
     }
