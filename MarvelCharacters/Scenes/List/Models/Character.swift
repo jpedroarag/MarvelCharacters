@@ -24,6 +24,7 @@ struct Character: Model {
     static var path: String = "v1/public/characters"
     
     let id: Int
+    let name: String
     let description: String
     let thumbnail: Thumbnail
     

@@ -22,7 +22,7 @@ class CharacterListCoordinator: Coordinator {
     }
     
     override func start() {
-        let controller = CharacterListViewController()
+        let controller = CharacterListViewController(viewModel: viewModel)
         let request = CodableRequest.fetch([Character].self, .defaults)
         viewModel.fetch(with: request)
         rootNavigationController.setViewControllers([controller], animated: false)
