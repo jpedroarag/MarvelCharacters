@@ -7,18 +7,6 @@
 
 import Foundation
 
-struct Thumbnail: Codable {
-    
-    let path: String
-    let format: String
-    
-    private enum CodingKeys: String, CodingKey {
-        case path
-        case format = "extension"
-    }
-    
-}
-
 struct Character: Model {
     
     static var path: String = "v1/public/characters"
@@ -26,6 +14,6 @@ struct Character: Model {
     let id: Int
     let name: String
     let description: String
-    let thumbnail: Thumbnail
+    let thumbnail: ThumbnailInfo
     
 }

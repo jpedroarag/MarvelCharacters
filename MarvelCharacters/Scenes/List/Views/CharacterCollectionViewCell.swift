@@ -49,6 +49,12 @@ class CharacterCollectionViewCell: UICollectionViewCell {
             .height(imageView.heightAnchor, multiplier: 1/6)
     }
     
+    func configure(index: Int, withInfoFrom viewModel: CharacterListDataSourceType) {
+        round(radius: 5)
+        label.text = viewModel.itemFor(index: index)
+        imageView.image = viewModel.getImage(for: index)
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }

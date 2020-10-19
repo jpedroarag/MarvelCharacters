@@ -11,6 +11,7 @@ protocol CharacterListViewDelegate {
     
     func reloadScene()
     func updateScene(with indexes: [Int])
+    func reloadScene(with indexes: [Int])
     
 }
 
@@ -57,8 +58,7 @@ extension CharacterListViewController: UICollectionViewDataSource,
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CharacterCell", for: indexPath) as? CharacterCollectionViewCell else {
             return .init()
         }
-        cell.round(radius: 5)
-        cell.label.text = viewModel.itemFor(index: indexPath.item)
+        cell.configure(index: indexPath.item, withInfoFrom: viewModel)
         return cell
     }
     
@@ -102,15 +102,22 @@ extension CharacterListViewController: UICollectionViewDataSource,
 
 extension CharacterListViewController: CharacterListViewDelegate {
     
+    private func mappedIndexes(_ array: [Int]) -> [IndexPath] {
+        return array.map {
+            IndexPath(item: $0, section: 0)
+        }
+    }
+    
     func reloadScene() {
         listView.collectionView.reloadData()
     }
     
     func updateScene(with indexes: [Int]) {
-        let indexPaths = indexes.map {
-            IndexPath(item: $0, section: 0)
-        }
-        listView.collectionView.insertItems(at: indexPaths)
+        listView.collectionView.insertItems(at: mappedIndexes(indexes))
+    }
+    
+    func reloadScene(with indexes: [Int]) {
+        listView.collectionView.reloadItems(at: mappedIndexes(indexes))
     }
     
 }

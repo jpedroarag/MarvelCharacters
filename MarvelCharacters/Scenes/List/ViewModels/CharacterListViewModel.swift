@@ -8,45 +8,93 @@
 import Foundation
 import UIKit
 
-protocol CharacterListViewModelType: AnyObject {
+protocol CharacterListDataSourceType: AnyObject {
     
-    var viewDelegate: CharacterListViewDelegate? { get set }
-        
     var numberOfItems: Int { get }
     var totalOfItems: Int { get }
     var numberOfSections: Int { get }
+    
     func itemFor(index: Int) -> String
+    func getImage(for index: Int) -> UIImage
+    
+}
+
+protocol CharacterListDelegateType: AnyObject {
     
     func loadMore()
     func didSelect(item: Int, from controller: UIViewController)
     
 }
 
-class CharacterListViewModel {
+protocol CharacterListViewModelType: CharacterListDataSourceType, CharacterListDelegateType {
+    
+    var viewDelegate: CharacterListViewDelegate? { get set }
+    
+}
+
+class CharacterListViewModel: CharacterListViewModelType {
     
     var viewDelegate: CharacterListViewDelegate?
-    let service: CodableService
+    let codableService: CodableService
+    let imageService: ImageService
     
     private(set) var urlParameters: URLParameters
     private(set) var hasMoreToLoad: Bool = true
     
     var totalCharactersCount: Int?
     private(set) var characters: [Character] = []
+    private(set) var imagesDict: [Int: UIImage] = [:]
     
-    init(with service: CodableService, urlParameters: URLParameters = .defaults) {
-        self.service = service
+    init(with service: CodableService = .init(),
+         urlParameters: URLParameters = .defaults,
+         imageService: ImageService = .init()) {
+        self.codableService = service
         self.urlParameters = urlParameters
+        self.imageService = imageService
     }
     
     func fetch<RequestType>(with request: RequestType) where RequestType: CodableRequestProtocol,
                                                              RequestType.WorkingType: Model {
-        service.perform(request, handledResult: { [weak self] result in
-            guard let self = self else { return }
+        codableService.perform(request, handledResult: { [weak self] result in
             switch result {
             case .success(let response):
-                self.succededResponse(response)
+                self?.succededResponse(response)
             case .failure(let error):
                 print(error.localizedDescription)
+            }
+        })
+    }
+    
+    func getImage(for index: Int) -> UIImage {
+        if index < numberOfItems {
+            let character = characters[index]
+            if let image = imagesDict[character.id] {
+                return image
+            } else {
+                getImage(for: index) { [weak self] image in
+                    guard let self = self else { return }
+                    let id = character.id
+                    self.imagesDict[id] = image
+                    self.viewDelegate?.reloadScene(with: [index])
+                }
+            }
+        }
+        return UIImage()
+    }
+    
+    func getImage(for index: Int, result: @escaping (UIImage) -> Void) {
+        guard index < numberOfItems else { return }
+        let character = characters[index]
+        let request = ImageRequest.request(from: character.thumbnail, with: .portrait_uncanny)
+        imageService.perform(request, handledResult: { [weak self] image in
+            DispatchQueue.main.async {
+                switch image {
+                case .success(let image):
+                    self?.imagesDict[character.id] = image
+                    result(image)
+                case .failure(_):
+                    break
+                }
             }
         })
     }
@@ -85,7 +133,7 @@ class CharacterListViewModel {
     
 }
 
-extension CharacterListViewModel: CharacterListViewModelType {
+extension CharacterListViewModel: CharacterListDataSourceType {
     
     var numberOfItems: Int {
         return characters.count
@@ -105,6 +153,10 @@ extension CharacterListViewModel: CharacterListViewModelType {
         }
         return characters[index].name
     }
+    
+}
+
+extension CharacterListViewModel: CharacterListDelegateType {
     
     func loadMore() {
         guard hasMoreToLoad else { return }

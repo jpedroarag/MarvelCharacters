@@ -15,6 +15,9 @@
 		3C4CBAE5253B68B800B2F6C3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CBAE4253B68B800B2F6C3 /* UIViewExtension.swift */; };
 		3C4CBAEA253CC52700B2F6C3 /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CBAE9253CC52700B2F6C3 /* CharacterCollectionViewCell.swift */; };
 		3C4CBAEF253CFAE500B2F6C3 /* LoadingFooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CBAEE253CFAE500B2F6C3 /* LoadingFooterCollectionReusableView.swift */; };
+		3C4CBAFA253D06C700B2F6C3 /* ThumbnailInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CBAF9253D06C700B2F6C3 /* ThumbnailInfo.swift */; };
+		3C4CBAFF253D06F400B2F6C3 /* ThumbnailType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CBAFE253D06F400B2F6C3 /* ThumbnailType.swift */; };
+		3C4CBB04253D099500B2F6C3 /* ImageRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CBB03253D099500B2F6C3 /* ImageRequestExtension.swift */; };
 		3C67FF3B2539DA9F007018B7 /* CodableRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C67FF312539DA9F007018B7 /* CodableRequest.swift */; };
 		3C67FF3D2539DA9F007018B7 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C67FF332539DA9F007018B7 /* URLRequestExtension.swift */; };
 		3C67FF3E2539DA9F007018B7 /* CodableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C67FF342539DA9F007018B7 /* CodableService.swift */; };
@@ -65,6 +68,9 @@
 		3C4CBAE4253B68B800B2F6C3 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3C4CBAE9253CC52700B2F6C3 /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		3C4CBAEE253CFAE500B2F6C3 /* LoadingFooterCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingFooterCollectionReusableView.swift; sourceTree = "<group>"; };
+		3C4CBAF9253D06C700B2F6C3 /* ThumbnailInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailInfo.swift; sourceTree = "<group>"; };
+		3C4CBAFE253D06F400B2F6C3 /* ThumbnailType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailType.swift; sourceTree = "<group>"; };
+		3C4CBB03253D099500B2F6C3 /* ImageRequestExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRequestExtension.swift; sourceTree = "<group>"; };
 		3C67FF312539DA9F007018B7 /* CodableRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableRequest.swift; sourceTree = "<group>"; };
 		3C67FF332539DA9F007018B7 /* URLRequestExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestExtension.swift; sourceTree = "<group>"; };
 		3C67FF342539DA9F007018B7 /* CodableService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableService.swift; sourceTree = "<group>"; };
@@ -127,6 +133,7 @@
 				3C4CBACC253B3EE600B2F6C3 /* JSONCodingKeys.swift */,
 				3C4CBAC7253B3EBE00B2F6C3 /* KeyedDecodingContainerExtension.swift */,
 				3C4CBAD4253B3F1E00B2F6C3 /* UnkeyedDecodingContainerExtension.swift */,
+				3C4CBB03253D099500B2F6C3 /* ImageRequestExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -212,6 +219,8 @@
 			isa = PBXGroup;
 			children = (
 				3C67FF8C253A1881007018B7 /* Character.swift */,
+				3C4CBAF9253D06C700B2F6C3 /* ThumbnailInfo.swift */,
+				3C4CBAFE253D06F400B2F6C3 /* ThumbnailType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -451,13 +460,16 @@
 				3C67FF3E2539DA9F007018B7 /* CodableService.swift in Sources */,
 				3C67FF402539DA9F007018B7 /* HTTPMethod.swift in Sources */,
 				3C67FF572539DF7F007018B7 /* ImageService.swift in Sources */,
+				3C4CBAFF253D06F400B2F6C3 /* ThumbnailType.swift in Sources */,
 				3C4CBACD253B3EE600B2F6C3 /* JSONCodingKeys.swift in Sources */,
 				3C67FF97253A1C29007018B7 /* CharacterListCoordinator.swift in Sources */,
+				3C4CBB04253D099500B2F6C3 /* ImageRequestExtension.swift in Sources */,
 				3C67FF442539DA9F007018B7 /* Provider.swift in Sources */,
 				3C4CBADF253B672400B2F6C3 /* CharacterListView.swift in Sources */,
 				3C67FF92253A1A9D007018B7 /* CharacterListViewModel.swift in Sources */,
 				3C67FF422539DA9F007018B7 /* NetworkError.swift in Sources */,
 				3C90B6402538FB9200BB87A3 /* Coordinator.swift in Sources */,
+				3C4CBAFA253D06C700B2F6C3 /* ThumbnailInfo.swift in Sources */,
 				3C4CBAC8253B3EBE00B2F6C3 /* KeyedDecodingContainerExtension.swift in Sources */,
 				3C67FF6B2539E049007018B7 /* ImageRequest.swift in Sources */,
 				3C4CBAEF253CFAE500B2F6C3 /* LoadingFooterCollectionReusableView.swift in Sources */,
@@ -631,7 +643,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6H6ZL3JRAS;
 				INFOPLIST_FILE = MarvelCharacters/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -651,7 +663,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6H6ZL3JRAS;
 				INFOPLIST_FILE = MarvelCharacters/Resources/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
