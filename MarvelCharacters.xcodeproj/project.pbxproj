@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3C4CBAC3253B3E6C00B2F6C3 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CBAC2253B3E6C00B2F6C3 /* Response.swift */; };
-		3C4CBAC8253B3EBE00B2F6C3 /* KeyedDecodingContainerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CBAC7253B3EBE00B2F6C3 /* KeyedDecodingContainerExtension.swift */; };
-		3C4CBACD253B3EE600B2F6C3 /* JSONCodingKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CBACC253B3EE600B2F6C3 /* JSONCodingKeys.swift */; };
-		3C4CBAD5253B3F1E00B2F6C3 /* UnkeyedDecodingContainerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CBAD4253B3F1E00B2F6C3 /* UnkeyedDecodingContainerExtension.swift */; };
 		3C4CBADF253B672400B2F6C3 /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CBADE253B672400B2F6C3 /* CharacterListView.swift */; };
 		3C4CBAE5253B68B800B2F6C3 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CBAE4253B68B800B2F6C3 /* UIViewExtension.swift */; };
 		3C4CBAEA253CC52700B2F6C3 /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CBAE9253CC52700B2F6C3 /* CharacterCollectionViewCell.swift */; };
@@ -61,9 +58,6 @@
 
 /* Begin PBXFileReference section */
 		3C4CBAC2253B3E6C00B2F6C3 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
-		3C4CBAC7253B3EBE00B2F6C3 /* KeyedDecodingContainerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyedDecodingContainerExtension.swift; sourceTree = "<group>"; };
-		3C4CBACC253B3EE600B2F6C3 /* JSONCodingKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCodingKeys.swift; sourceTree = "<group>"; };
-		3C4CBAD4253B3F1E00B2F6C3 /* UnkeyedDecodingContainerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnkeyedDecodingContainerExtension.swift; sourceTree = "<group>"; };
 		3C4CBADE253B672400B2F6C3 /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 		3C4CBAE4253B68B800B2F6C3 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		3C4CBAE9253CC52700B2F6C3 /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -130,9 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				3C67FF332539DA9F007018B7 /* URLRequestExtension.swift */,
-				3C4CBACC253B3EE600B2F6C3 /* JSONCodingKeys.swift */,
-				3C4CBAC7253B3EBE00B2F6C3 /* KeyedDecodingContainerExtension.swift */,
-				3C4CBAD4253B3F1E00B2F6C3 /* UnkeyedDecodingContainerExtension.swift */,
 				3C4CBB03253D099500B2F6C3 /* ImageRequestExtension.swift */,
 			);
 			path = Extension;
@@ -456,12 +447,10 @@
 				3C67FF3D2539DA9F007018B7 /* URLRequestExtension.swift in Sources */,
 				3C67FF8D253A1881007018B7 /* Character.swift in Sources */,
 				3C67FF852539ECC8007018B7 /* URLParameters.swift in Sources */,
-				3C4CBAD5253B3F1E00B2F6C3 /* UnkeyedDecodingContainerExtension.swift in Sources */,
 				3C67FF3E2539DA9F007018B7 /* CodableService.swift in Sources */,
 				3C67FF402539DA9F007018B7 /* HTTPMethod.swift in Sources */,
 				3C67FF572539DF7F007018B7 /* ImageService.swift in Sources */,
 				3C4CBAFF253D06F400B2F6C3 /* ThumbnailType.swift in Sources */,
-				3C4CBACD253B3EE600B2F6C3 /* JSONCodingKeys.swift in Sources */,
 				3C67FF97253A1C29007018B7 /* CharacterListCoordinator.swift in Sources */,
 				3C4CBB04253D099500B2F6C3 /* ImageRequestExtension.swift in Sources */,
 				3C67FF442539DA9F007018B7 /* Provider.swift in Sources */,
@@ -470,7 +459,6 @@
 				3C67FF422539DA9F007018B7 /* NetworkError.swift in Sources */,
 				3C90B6402538FB9200BB87A3 /* Coordinator.swift in Sources */,
 				3C4CBAFA253D06C700B2F6C3 /* ThumbnailInfo.swift in Sources */,
-				3C4CBAC8253B3EBE00B2F6C3 /* KeyedDecodingContainerExtension.swift in Sources */,
 				3C67FF6B2539E049007018B7 /* ImageRequest.swift in Sources */,
 				3C4CBAEF253CFAE500B2F6C3 /* LoadingFooterCollectionReusableView.swift in Sources */,
 			);
