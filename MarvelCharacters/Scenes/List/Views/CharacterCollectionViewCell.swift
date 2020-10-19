@@ -15,6 +15,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        label.round(radius: 5)
         addSubviews()
         setupColors()
         setupConstraints()
@@ -28,6 +29,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     
     func setupColors() {
         backgroundColor = .clear
+        label.backgroundColor = .systemGray
         imageView.backgroundColor = .systemGray
         labelBackground.backgroundColor = .white
     }
@@ -41,6 +43,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
             .left(in: labelBackground, offset: 8)
             .right(in: labelBackground, offset: -8)
             .centerY(in: labelBackground)
+            .height(labelBackground.heightAnchor, multiplier: 1/2)
         labelBackground
             .enableAutolayout()
             .left(in: imageView)
@@ -50,9 +53,12 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(index: Int, withInfoFrom viewModel: CharacterListDataSourceType) {
+        let text = viewModel.itemFor(index: index)
+        let image = viewModel.getImage(for: index)
         round(radius: 5)
-        label.text = viewModel.itemFor(index: index)
-        imageView.image = viewModel.getImage(for: index)
+        label.backgroundColor = (text == "") ? .systemGray : .clear
+        label.text = text
+        imageView.image = image
     }
     
     required init?(coder: NSCoder) {

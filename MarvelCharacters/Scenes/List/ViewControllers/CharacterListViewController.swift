@@ -76,6 +76,11 @@ extension CharacterListViewController: UICollectionViewDataSource,
         let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                      withReuseIdentifier: "LoadingFooter",
                                                                      for: indexPath)
+        if let loadingFooter = footer as? LoadingFooterCollectionReusableView,
+           viewModel.numberOfItems > 0,
+           viewModel.numberOfItems == viewModel.totalOfItems {
+            loadingFooter.activityIndicator.stopAnimating()
+        }
         return footer
     }
     

@@ -149,7 +149,7 @@ extension CharacterListViewModel: CharacterListDataSourceType {
     
     func itemFor(index: Int) -> String {
         guard index < numberOfItems else {
-            return "Loading..."
+            return ""
         }
         return characters[index].name
     }
