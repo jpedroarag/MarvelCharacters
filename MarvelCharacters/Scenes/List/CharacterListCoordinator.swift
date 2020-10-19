@@ -44,7 +44,16 @@ extension CharacterListCoordinator: CharacterListViewModelCoordinatorDelegate {
         let detailsViewModel = CharacterDetailsViewModel(image: image ?? UIImage(),
                                                          description: character.description)
         let detailsController = CharacterDetailsViewController(viewModel: detailsViewModel)
+        detailsController.navigationItem.title = character.name
         rootNavigationController.pushViewController(detailsController, animated: true)
+    }
+    
+    func presentErrorAlert(with error: Error) {
+        print(error.localizedDescription)
+        let alert = UIAlertController.errorAlert { [weak self] in
+            self?.viewModel.reload()
+        }
+        rootNavigationController.present(alert, animated: true)
     }
     
 }

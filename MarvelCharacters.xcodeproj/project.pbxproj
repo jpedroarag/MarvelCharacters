@@ -20,6 +20,7 @@
 		3C4CBB1F253D3EAE00B2F6C3 /* UITableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CBB1E253D3EAE00B2F6C3 /* UITableViewExtension.swift */; };
 		3C4CBB24253D43E300B2F6C3 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CBB23253D43E300B2F6C3 /* UIColorExtension.swift */; };
 		3C4CBB29253D48C800B2F6C3 /* CharacterDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CBB28253D48C800B2F6C3 /* CharacterDetailsViewModel.swift */; };
+		3C4CBB2E253D4CAB00B2F6C3 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C4CBB2D253D4CAB00B2F6C3 /* UIAlertControllerExtension.swift */; };
 		3C67FF3B2539DA9F007018B7 /* CodableRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C67FF312539DA9F007018B7 /* CodableRequest.swift */; };
 		3C67FF3D2539DA9F007018B7 /* URLRequestExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C67FF332539DA9F007018B7 /* URLRequestExtension.swift */; };
 		3C67FF3E2539DA9F007018B7 /* CodableService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C67FF342539DA9F007018B7 /* CodableService.swift */; };
@@ -75,6 +76,7 @@
 		3C4CBB1E253D3EAE00B2F6C3 /* UITableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtension.swift; sourceTree = "<group>"; };
 		3C4CBB23253D43E300B2F6C3 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		3C4CBB28253D48C800B2F6C3 /* CharacterDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewModel.swift; sourceTree = "<group>"; };
+		3C4CBB2D253D4CAB00B2F6C3 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		3C67FF312539DA9F007018B7 /* CodableRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableRequest.swift; sourceTree = "<group>"; };
 		3C67FF332539DA9F007018B7 /* URLRequestExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestExtension.swift; sourceTree = "<group>"; };
 		3C67FF342539DA9F007018B7 /* CodableService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodableService.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				3C4CBAE4253B68B800B2F6C3 /* UIViewExtension.swift */,
 				3C4CBB1E253D3EAE00B2F6C3 /* UITableViewExtension.swift */,
 				3C4CBB23253D43E300B2F6C3 /* UIColorExtension.swift */,
+				3C4CBB2D253D4CAB00B2F6C3 /* UIAlertControllerExtension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -486,6 +489,7 @@
 				3C67FF602539E01A007018B7 /* ImageError.swift in Sources */,
 				3C67FF3D2539DA9F007018B7 /* URLRequestExtension.swift in Sources */,
 				3C67FF8D253A1881007018B7 /* Character.swift in Sources */,
+				3C4CBB2E253D4CAB00B2F6C3 /* UIAlertControllerExtension.swift in Sources */,
 				3C67FF852539ECC8007018B7 /* URLParameters.swift in Sources */,
 				3C67FF3E2539DA9F007018B7 /* CodableService.swift in Sources */,
 				3C67FF402539DA9F007018B7 /* HTTPMethod.swift in Sources */,

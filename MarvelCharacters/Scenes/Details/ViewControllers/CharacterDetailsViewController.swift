@@ -63,6 +63,7 @@ extension CharacterDetailsViewController: UITableViewDataSource {
         let cell = UITableViewCell()
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.text = viewModel.itemFor(index: indexPath.row) as? String
+        cell.textLabel?.textColor = UIColor.appText
         cell.selectionStyle = .none
         cell.backgroundColor = .clear
         return cell

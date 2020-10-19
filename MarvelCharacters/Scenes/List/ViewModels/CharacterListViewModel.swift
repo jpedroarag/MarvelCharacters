@@ -22,6 +22,7 @@ protocol CharacterListDataSourceType: AnyObject {
 
 protocol CharacterListDelegateType: AnyObject {
     
+    func reload()
     func loadMore()
     func didSelect(item: Int, from controller: UIViewController)
     
@@ -36,6 +37,7 @@ protocol CharacterListViewModelType: CharacterListDataSourceType, CharacterListD
 protocol CharacterListViewModelCoordinatorDelegate: AnyObject {
     
     func didSelect(_ character: Character, from controller: UIViewController)
+    func presentErrorAlert(with error: Error)
     
 }
 
@@ -69,7 +71,9 @@ class CharacterListViewModel: CharacterListViewModelType {
             case .success(let response):
                 self?.succededResponse(response)
             case .failure(let error):
-                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    self?.coordinatorDelegate?.presentErrorAlert(with: error)
+                }
             }
         })
     }
@@ -170,6 +174,12 @@ extension CharacterListViewModel: CharacterListDataSourceType {
 }
 
 extension CharacterListViewModel: CharacterListDelegateType {
+    
+    func reload() {
+        guard hasMoreToLoad else { return }
+        let request: CodableRequest<Character> = .fetch([Character].self, urlParameters)
+        fetch(with: request)
+    }
     
     func loadMore() {
         guard hasMoreToLoad else { return }

@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let navigationController = UINavigationController()
+        navigationController.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.appText as Any]
+        navigationController.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.appText as Any]
+        navigationController.navigationBar.tintColor = UIColor.appText
+        
         let coordinator = AppCoordinator(window: window, rootNavigationController: navigationController)
         let characterListCoordinator = CharacterListCoordinator(with: navigationController)
         

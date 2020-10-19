@@ -30,9 +30,10 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     
     func setupColors() {
         backgroundColor = .clear
-        label.backgroundColor = .systemGray
-        imageView.backgroundColor = .systemGray
-        labelBackground.backgroundColor = .white
+        label.textColor = UIColor.appText
+        label.backgroundColor = UIColor.appLoadingBackground
+        imageView.backgroundColor = UIColor.appLoadingBackground
+        labelBackground.backgroundColor = UIColor.appTextBackground
     }
     
     func setupConstraints() {

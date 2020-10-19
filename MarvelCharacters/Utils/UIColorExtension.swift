@@ -9,9 +9,9 @@ import UIKit
 
 extension UIColor {
     
-    static var appBackground = UIColor(red: 247/255,
-                                       green: 240/255,
-                                       blue: 245/255,
-                                       alpha: 1)
+    static var appBackground = UIColor(named: "Background")
+    static var appLoadingBackground = UIColor(named: "LoadingBackground")
+    static var appText = UIColor(named: "Text")
+    static var appTextBackground = UIColor(named: "TextBackground")
     
 }

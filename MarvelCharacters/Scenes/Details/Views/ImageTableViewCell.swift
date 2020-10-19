@@ -14,11 +14,19 @@ class ImageTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
-        backgroundColor = .clear
-        customImageView.contentMode = .scaleAspectFill
-        customImageView.clipsToBounds = true
+        setupColors()
+        setupImage()
         addSubview(customImageView)
         setupConstraints()
+    }
+    
+    func setupColors() {
+        backgroundColor = .clear
+    }
+    
+    func setupImage() {
+        customImageView.contentMode = .scaleAspectFill
+        customImageView.clipsToBounds = true
     }
     
     func setupConstraints() {
