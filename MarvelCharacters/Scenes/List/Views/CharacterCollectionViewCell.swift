@@ -16,6 +16,7 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         label.round(radius: 5)
+        imageView.contentMode = .scaleAspectFill
         addSubviews()
         setupColors()
         setupConstraints()

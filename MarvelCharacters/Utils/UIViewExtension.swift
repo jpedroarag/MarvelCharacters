@@ -43,8 +43,10 @@ extension UIView {
     }
     
     @discardableResult
-    func bottom(in view: UIView, offset: CGFloat = 0) -> Self {
-        bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: offset).isActive = true
+    func bottom(in view: UIView, offset: CGFloat = 0, priority: UILayoutPriority = .init(rawValue: 100)) -> Self {
+        let constraint = bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: offset)
+        constraint.priority = priority
+        constraint.isActive = true
         return self
     }
     
@@ -52,8 +54,8 @@ extension UIView {
     func filled(in view: UIView, paddings: CGFloat = 0) -> Self {
         topAnchor.constraint(equalTo: view.topAnchor, constant: paddings).isActive = true
         leftAnchor.constraint(equalTo: view.leftAnchor, constant: paddings).isActive = true
-        rightAnchor.constraint(equalTo: view.rightAnchor, constant: paddings).isActive = true
-        bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: paddings).isActive = true
+        rightAnchor.constraint(equalTo: view.rightAnchor, constant: -paddings).isActive = true
+        bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -paddings).isActive = true
         return self
     }
 

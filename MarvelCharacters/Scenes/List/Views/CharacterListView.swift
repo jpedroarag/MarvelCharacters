@@ -17,10 +17,7 @@ class CharacterListView: UIView {
         layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.showsHorizontalScrollIndicator = false
-        collection.backgroundColor = UIColor(red: 247/255,
-                                             green: 240/255,
-                                             blue: 245/255,
-                                             alpha: 1)
+        collection.backgroundColor = .appBackground
         return collection
     }()
     

@@ -13,6 +13,7 @@ protocol CharacterListDataSourceType: AnyObject {
     var numberOfItems: Int { get }
     var totalOfItems: Int { get }
     var numberOfSections: Int { get }
+    var hasMoreToLoad: Bool { get }
     
     func itemFor(index: Int) -> String
     func getImage(for index: Int) -> UIImage
@@ -32,14 +33,22 @@ protocol CharacterListViewModelType: CharacterListDataSourceType, CharacterListD
     
 }
 
+protocol CharacterListViewModelCoordinatorDelegate: AnyObject {
+    
+    func didSelect(_ character: Character, from controller: UIViewController)
+    
+}
+
 class CharacterListViewModel: CharacterListViewModelType {
     
-    var viewDelegate: CharacterListViewDelegate?
+    weak var coordinatorDelegate: CharacterListViewModelCoordinatorDelegate?
+    weak var viewDelegate: CharacterListViewDelegate?
+    
     let codableService: CodableService
     let imageService: ImageService
     
     private(set) var urlParameters: URLParameters
-    private(set) var hasMoreToLoad: Bool = true
+    private var _hasMoreToLoad: Bool = true
     
     var totalCharactersCount: Int?
     private(set) var characters: [Character] = []
@@ -128,12 +137,16 @@ class CharacterListViewModel: CharacterListViewModelType {
     private func updateHasMoreToLoad<AnyModel>(with response: Response<AnyModel>) where AnyModel: Model {
         let count = response.data.count
         let limit = response.data.limit
-        hasMoreToLoad = (count == limit)
+        _hasMoreToLoad = (count == limit)
     }
     
 }
 
 extension CharacterListViewModel: CharacterListDataSourceType {
+    
+    var hasMoreToLoad: Bool {
+        return _hasMoreToLoad
+    }
     
     var numberOfItems: Int {
         return characters.count
@@ -167,7 +180,8 @@ extension CharacterListViewModel: CharacterListDelegateType {
     }
     
     func didSelect(item: Int, from controller: UIViewController) {
-        
+        guard item < numberOfItems else { return }
+        coordinatorDelegate?.didSelect(characters[item], from: controller)
     }
     
 }

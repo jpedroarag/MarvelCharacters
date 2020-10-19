@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CharacterListViewDelegate {
+protocol CharacterListViewDelegate: AnyObject {
     
     func reloadScene()
     func updateScene(with indexes: [Int])
@@ -24,7 +24,6 @@ class CharacterListViewController: UIViewController {
         self.listView = view
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        viewModel.viewDelegate = self
     }
 
     override func loadView() {
@@ -32,6 +31,12 @@ class CharacterListViewController: UIViewController {
         listView.delegate = self
         listView.prefetchDataSource = self
         view = listView
+        viewModel.viewDelegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     required init?(coder: NSCoder) {
@@ -76,16 +81,15 @@ extension CharacterListViewController: UICollectionViewDataSource,
         let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                      withReuseIdentifier: "LoadingFooter",
                                                                      for: indexPath)
-        if let loadingFooter = footer as? LoadingFooterCollectionReusableView,
-           viewModel.numberOfItems > 0,
-           viewModel.numberOfItems == viewModel.totalOfItems {
+        if !viewModel.hasMoreToLoad,
+           let loadingFooter = footer as? LoadingFooterCollectionReusableView {
             loadingFooter.activityIndicator.stopAnimating()
         }
         return footer
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        viewModel.didSelect(item: indexPath.item, from: self)
     }
     
     func collectionView(_ collectionView: UICollectionView,

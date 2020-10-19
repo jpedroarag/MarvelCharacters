@@ -28,10 +28,23 @@ class CharacterListCoordinator: Coordinator {
         let controller = CharacterListViewController(viewModel: viewModel)
         let request = CodableRequest.fetch([Character].self, .defaults)
         controller.navigationItem.title = title
+        viewModel.coordinatorDelegate = self
         viewModel.fetch(with: request)
         rootNavigationController.setViewControllers([controller], animated: false)
     }
     
     override func finish() {}
+    
+}
+
+extension CharacterListCoordinator: CharacterListViewModelCoordinatorDelegate {
+    
+    func didSelect(_ character: Character, from controller: UIViewController) {
+        let image = viewModel.imagesDict[character.id]
+        let detailsViewModel = CharacterDetailsViewModel(image: image ?? UIImage(),
+                                                         description: character.description)
+        let detailsController = CharacterDetailsViewController(viewModel: detailsViewModel)
+        rootNavigationController.pushViewController(detailsController, animated: true)
+    }
     
 }

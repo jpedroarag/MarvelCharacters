@@ -17,10 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let navigationController = UINavigationController()
-        navigationController.navigationBar.prefersLargeTitles = true
-        
         let coordinator = AppCoordinator(window: window, rootNavigationController: navigationController)
-        let characterListCoordinator = CharacterListCoordinator(with: coordinator.rootNavigationController)
+        let characterListCoordinator = CharacterListCoordinator(with: navigationController)
         
         appCoordinator = coordinator
         coordinator.addChildCoordinator(characterListCoordinator)
